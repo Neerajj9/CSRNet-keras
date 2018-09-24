@@ -1,5 +1,5 @@
 # CSRNet-keras
-Implementation of the CSRNet paper (CVPR 18) in keras-tensorflow
+Implementation of the CSRNet paper (CVPR 18) in keras-tensorflow. First ever to be done in keras-tf as of 21/9/18.
 
 ### CVPR 2018 Paper : https://arxiv.org/abs/1802.10062
 
