@@ -22,6 +22,8 @@ The model architecture is divide into two parts, front-end and back-end. The fro
 
 Batch Normalisation functionality is also provided in the code. As VGG16 does not have any BN layers, we built a custom VGG16 model and ported pretrained weights of VGG16 to this model.
 
+
+### Vairable Size Input
 In keras it is difficult to train a model where the size of the input image is variable. Keras does not allow variable size inputs to be trained in the same batch. One way to tackle this is to combine all images having the same image dimension and train them as a batch. The ShanghaiTech dataset does not contain many images having the same image size and thus such batches could not be made. Another approach is to train each image independantly and run a loop over all images. This approach is not efficient in terms of memory usage, computations and time. Thus, we built a custom data generator in keras to efficiently train variable sized images. With a data generator, efficient memory usage takes place and the time taken for training reduces drastically.
 
 The paper also specifies cropping of images as a part of data augmentation. However, the Pytorch implementation does not use cropping of images while training. Hence we have provided a function `preprocess_input()` which can be used inside `image_generator()` to add the cropping functionality. We have trained the model without cropping the images.
