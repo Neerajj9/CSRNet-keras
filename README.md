@@ -50,9 +50,9 @@ Predicted Count : 232
 
 # Result :
 
-Given below is comparison between the MAE and MSE error given in the paper and produced by our model. 
+Given below is comparison between the MAE error given in the paper and produced by our model. 
 
-|                     | MAE           |   MSE         |
+|                     | Our Model     |  CSRNet-Paper |
 | ------------------- | ------------- |---------------|
 |ShanghaiTech part A  | 65.92         | 68.2          |
 |ShanghaiTech part B  | 11.01         | 10.6          |
