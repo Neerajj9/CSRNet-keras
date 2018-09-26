@@ -40,10 +40,13 @@ Actual Image :
 
 <img src="https://github.com/Neerajj9/CSRNet-keras/blob/master/test_images/IMG_105.jpg" width="480">
 
-Density Map : 
+Generated Density Map : 
 
 <img src="https://github.com/Neerajj9/CSRNet-keras/blob/master/results/105.jpg" width="480">
 
+Actual Count : 258
+
+Predicted Count : 232
 
 # Result :
 
