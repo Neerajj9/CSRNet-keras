@@ -52,9 +52,9 @@ Predicted Count : 232
 
 # Result :
 
-Given below is comparison between the MAE error given in the paper and produced by our model. 
+Given below is comparison between the MAE error  produced by our model. 
 
-|                     | MAE           |  
+|       Dataset       | MAE           |  
 | ------------------- | ------------- |
 |ShanghaiTech part A  | 65.92         | 
 |ShanghaiTech part B  | 11.01         |
