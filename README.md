@@ -36,7 +36,7 @@ The model A performs very well on dense crowd whereas the model B performs vey w
 
 Given below is the result on actual images taken from the test set provided in the ShanghaiTech dataset.
 
-<img src="https://github.com/Neerajj9/CSRNet-keras/blob/master/test_images/IMG_105.jpg" width="48">
+<img src="https://github.com/Neerajj9/CSRNet-keras/blob/master/test_images/IMG_105.jpg" width="480">
 
 # Result :
 
