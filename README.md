@@ -60,6 +60,7 @@ Given below is comparison between the MAE error  produced by our model.
 |ShanghaiTech part B  | 11.01         |
 
 
- 
+(Due to lack of computation power we were not able to train this within a reasonable time.
+Thus to aid the developer community build other such disaster management/crowd control applications, we have open sourced the weights transferred from the pytorch model.  Results may vary during training.)
 
 
