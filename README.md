@@ -1,9 +1,11 @@
 # CSRNet-keras
 Implementation of the CSRNet paper (CVPR 18) in keras-tensorflow. First ever to be done in keras-tf as of 21/9/18.
 
-Mindspark Hackathon Winning Project:
+Mindspark Hackathon Winning Project(Kumbh-Mela Disaster Management):
 
 Team : Pratik Ratadiya(Web/Django), Aditya Malte(ML/DL), Kshitij Patil(Android), Neeraj Panse(ML/DL)
+
+In order to aid the ML/DL community, we have open sourced the deep learning part of the project.
 
 ### CVPR 2018 Paper : https://arxiv.org/abs/1802.10062
 
