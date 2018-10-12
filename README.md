@@ -5,15 +5,21 @@ Implementation of the CSRNet paper (CVPR 18) in keras-tensorflow. First ever to 
 
 ### Official Pytorch Implementation : https://github.com/leeyeehoo/CSRNet-pytorch
 
-As we were searching on the internet, we could not find any keras implementation of the state of the art CSRNet paper. A large part of the deep learning community uses keras-tensorflow to implement their neural network models. Thus, we implemented the CSRNet model in keras-tensorflow. Another perk of implementing it in keras is that it can be easily deployed on an android system due to tensorflow support.
+As we were searching over the internet, we could not find any keras implementation of the state of the art paper CSRNet. A large part of the deep learning community uses keras-tensorflow to implement their neural network models. Thus, we implemented the CSRNet model in keras-tensorflow. Tensorflow has a massive advantage when it comes to deployability(eg. Android,etc).
 
 # Dataset :
 The dataset used is ShanghaiTech dataset available here : [Drive Link](https://drive.google.com/file/d/16dhJn7k4FWVwByRsQAEpl9lwjuV03jVI/view)
 
-The dataset is divided into two parts, A and B. The A part consists of images with a high density of crowd. The B part consists of images with images of sparse crowd scenes.   
+The dataset is divided into two parts, A and B. Part Aconsists of images with a high density of crowd. Part B consists of images with images of sparse crowd scenes.   
 
 # Data Preprocessing  :
 In data preprocessing, the main objective was to convert the ground truth provided by the ShanghaiTech dataset into density maps. For a given image the dataset provided a sparse matrix consisting of the head annotations in that image. This sparse matrix was converted into a 2D density map by passing through a Gaussian Filter. The sum of all the cells in the density map results in the actual count of people in that particular image. Refer the `Preprocess.ipynb` notebook for the same.
+
+# Data preprocessing math explained:
+Given a set of head annotations our task is to convert it to a density map.
+1) Build a kdtree(a kdtree is a data structure that allows fast computation of K Nearest neighbours) of the head annotations.
+2) Find the average distances for each head with K(in this case 4) nearest heads in the head annotations. Multpiply this value by a    factor, 0.3 as suggested by the author of the paper.
+3) Put this value as sigma and convolve using the 2D Gaussian filter. 
 
 # Model :
 The CSRNet model uses Convolutional Neural Networks to map the input image to it's respective density map. The model does not make use of any fully connected layers and thus the size of the input image is variable. As a result, the model learns from a large amount of varied data and there is no information loss considering the image resolution. There is no need of reshaping/resizing the image while inferencing. The model architecture is such that considering the input image to be (x,y,3), the output is a desnity map of size (x/8,y/8,1).
@@ -24,7 +30,7 @@ Batch Normalisation functionality is also provided in the code. As VGG16 does no
 
 
 #### Vairable Size Input
-In keras it is difficult to train a model where the size of the input image is variable. Keras does not allow variable size inputs to be trained in the same batch. One way to tackle this is to combine all images having the same image dimension and train them as a batch. The ShanghaiTech dataset does not contain many images having the same image size and thus such batches could not be made. Another approach is to train each image independantly and run a loop over all images. This approach is not efficient in terms of memory usage, computations and time. Thus, we built a custom data generator in keras to efficiently train variable sized images. With a data generator, efficient memory usage takes place and the time taken for training reduces drastically.
+In keras it is difficult to train a model where the size of the input image is variable. Keras does not allow variable size inputs to be trained in the same batch. One way to tackle this is to combine all images having the same image dimension and train them as a batch. The ShanghaiTech dataset does not contain many images having the same image size and thus such batches could not be made. Another approach is to train each image independantly and run a loop over all images. This approach is not efficient in terms of memory usage and computation time. Thus, we built a custom data generator in keras to efficiently train variable sized images. With a data generator, efficient memory usage takes place and the time taken for training reduces drastically.
 
 The paper also specifies cropping of images as a part of data augmentation. However, the Pytorch implementation does not use cropping of images while training. Hence we have provided a function `preprocess_input()` which can be used inside `image_generator()` to add the cropping functionality. We have trained the model without cropping the images.
 
@@ -59,8 +65,5 @@ Given below is comparison between the MAE error  produced by our model.
 |ShanghaiTech part A  | 65.92         | 
 |ShanghaiTech part B  | 11.01         |
 
-
-(Due to lack of computation power we were not able to train this within a reasonable time.
-Thus to aid the developer community build other such disaster management/crowd control applications, we have open sourced the weights transferred from the pytorch model.  Results may vary during training.)
 
 
