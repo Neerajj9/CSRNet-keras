@@ -72,7 +72,7 @@ Given below is comparison between the MAE error  produced by our model.
 |ShanghaiTech part B  | 11.01         |
 
 
-# Dependancies :
+# Requirements :
 
 1. Keras : 2.2.2
 2. Tensorflow : 1.9.0
