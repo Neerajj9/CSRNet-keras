@@ -72,4 +72,13 @@ Given below is comparison between the MAE error  produced by our model.
 |ShanghaiTech part B  | 11.01         |
 
 
+# Dependancies :
+
+1. Keras : 2.2.2
+2. Tensorflow : 1.9.0
+3. Scipy : 1.1.0
+4. Numpy : 1.14.3
+5. Pillow(PIL) : 5.1.0
+6. OpenCV : 3.4.1
+
 
